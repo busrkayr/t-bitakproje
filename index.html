@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yapı ve Altyapı (SI)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Yapı ve Altyapı (SI)</h1>
+        
+        <!-- 1.1 Sorusu -->
+        <div class="input-group">
+            <label for="education-type">Aşağıdaki seçeneklerden birini Yükseköğretim kurumu türü olarak seçiniz:</label>
+            <select id="education-type">
+                <option value="genis-kapsamli">[a] Geniş kapsamlı</option>
+                <option value="uzmanlasmis">[b] Uzmanlaşmış yükseköğretim kurumu</option>
+            </select>
+        </div>
+
+        <!-- 1.2 Sorusu -->
+        <div class="input-group">
+            <label for="climate-description">Bölgenizdeki iklimi iyi açıklayan seçeneği işaretleyiniz:</label>
+            <select id="climate-description">
+                <option value="tropik-yagisli">[a] Tropik yağışlı</option>
+                <option value="tropik-yagisli-kurak">[b] Tropik yağışlı ve kurak</option>
+                <option value="yarikurak">[c] Yarı kurak</option>
+                <option value="kurak">[d] Kurak</option>
+                <option value="akdeniz">[e] Akdeniz</option>
+                <option value="nemli-subtropik">[f] Nemli subtropik</option>
+                <option value="bati-sahili-deniz-iklimi">[g] Batı sahili deniz iklimi</option>
+                <option value="nemli-kitalasal">[h] Nemli kıtasal</option>
+                <option value="kutup-alti">[i] Kutup altı</option>
+            </select>
+        </div>
+
+        <!-- 1.3 Sorusu -->
+        <div class="input-group">
+            <label for="campus-count">Kampüs Sayısı:</label>
+            <input type="number" id="campus-count" placeholder="Kampüs Sayısı">
+        </div>
+
+        <!-- 1.4 Sorusu -->
+        <div class="input-group">
+            <label for="campus-structure">Merkez kampüsün yapısı:</label>
+            <select id="campus-structure">
+                <option value="kirsal">[a] Kırsal</option>
+                <option value="banliyo">[b] Banliyö</option>
+                <option value="sehirde">[c] Şehirde</option>
+                <option value="sehir-merkezinde">[d] Şehir merkezinde</option>
+                <option value="yuksek-binali-bolgede">[e] Yüksek binalı bölgede</option>
+            </select>
+        </div>
+
+        <!-- 1.5 Sorusu -->
+        <div class="input-group">
+            <label for="campus-area">Merkez kampüsün toplam alanı (m²): <span style="color: red;">(Sadece akademik aktiviteler için kullanılan alanı giriniz. Ormanlar, araziler ve diğer alanlar akademik amaçlı kullanılıyorsa dahil edilebilir.)</span></label>
+            <input type="number" id="campus-area" placeholder="Toplam alanı girin (m²)">
+        </div>
+
+        <!-- 1.6 Sorusu -->
+        <div class="input-group">
+            <label for="first-floor-area">Merkez kampüsteki binaların zemin katlarının toplam alanı (m²): <span style="color: red;">(Lütfen üniversitenizin binalarının sadece zemin katlarının alanını belirterek binaların kapladığı alanı giriniz.)</span></label>
+            <input type="number" id="first-floor-area" placeholder="Zemin katların alanını girin (m²)">
+        </div>
+
+        <!-- 1.7 Sorusu -->
+        <div class="input-group">
+            <label for="total-building-area">Merkez kampüsteki binaların toplam alanı (m²): <span style="color: red;">(Zemin katların ve diğer tüm katların toplam alanını belirterek binaların kapladığı alanı giriniz.)</span></label>
+            <input type="number" id="total-building-area" placeholder="Toplam bina alanını girin (m²)">
+        </div>
+
+        <!-- 1.8 Sorusu -->
+        <div class="input-group">
+            <label for="open-space-ratio">S1.1 Açık alanların toplam alana oranı (%): <span style="color: red;">(Lütfen kampüsünüzdeki açık alanların yüzdesini [(Merkez Kampüsün Toplam Alanı - Merkez Kampüsteki Zemin Katların Alanı) / Merkez Kampüsün Toplam Alanı]*100 formülünü kullanarak hesaplayınız.) </span></label>
+            <input type="number" id="open-space-ratio" placeholder="Açık alanların yüzdesi girin" required>
+        </div>
+
+        <!-- 1.9 Sorusu -->
+        <div class="input-group">
+            <label for="forest-area-ratio">S1.2 Kampüs alanının ormanlık alanlarla kaplı yüzdesi (%): <span style="color: red;">( Lütfen kampüsünüzdeki ormanlık alanların (genelde çok sayıdaki büyük ağaçlar, biyoçeşitlilik, koruma amaçlı dikilen yoğun dikey çalılıklar) kapladığı alanın toplam kampüs alanına göre yüzdesini belirtiniz.)</span></label>
+            <input type="number" id="forest-area-ratio" placeholder="Ormanlık alan yüzdesi girin">
+        </div>
+
+        <!-- 1.10 Sorusu -->
+        <div class="input-group">
+            <label for="green-area-ratio">S1.3 Kampüs alanındaki ekili yeşil alanların oranı (%): <span style="color: red;">(Lütfen kampüsünüzdeki ormanlar hariç ekili yeşil alanların (yeşillendirme amaçlı çimen, bahçe, çatı bahçeleri, iç mekana ekilen bitkiler, dikey bahçeler dahil edilebilir) kapladığı alanın toplam kampüs alanına göre yüzdesini belirtiniz.)</span></label>
+            <input type="number" id="green-area-ratio" placeholder="Ekili yeşil alan yüzdesi girin">
+            <span id="green-area-warning" style="color: red; font-size: 14px;"></span>
+        </div>
+
+        <!-- 1.11 Sorusu -->
+        <div class="input-group">
+            <label for="absorptive-ratio">S1.4 Orman ve ekilmiş yeşil alanlara ek olarak Su Emici diğer alanların oranı (%): <span style="color: red;">(Lütfen kampüsünüzdeki su tutucu olan yüzeylerin (örn. Toprak, çimen, beton bloklu döşeme vb.) toplam alana göre yüzdesini belirtiniz. Daha geniş bir su emici alan, istenen bir özelliktir.)</span></label>
+            <input type="number" id="absorptive-ratio" placeholder="Su tutucu alan yüzdesi girin">
+            <span id="absorptive-warning" style="color: red; font-size: 14px;"></span>
+        </div>
+
+        <!-- 1.12 Sorusu -->
+        <div class="input-group">
+            <label for="total-students">EC.4 Toplam Kayıtlı Öğrenci Sayısı: <span style="color: red;">(Üniversitenizde kayıtlı toplam (tam zamanlı ve yarı zamanlı) kampüste ve çevrimiçi eğitim gören öğrenci sayısını belirtiniz.Kayıtlı öğrenci, bir dönemde kaydı aktif olan öğrenci sayısı olarak tanımlanır.)</span></label>
+            <input type="number" id="total-students" name="total-students" placeholder="Öğrenci Sayısını girin" min="0" required>
+        </div>
+
+        <!-- 1.13 Sorusu -->
+        <div class="input-group">
+            <label for="remote-students">Toplam Uzaktan Eğitim Gören Öğrenci Sayısı:</label>
+            <input type="number" id="remote-students" name="remote-students" placeholder="Çevrimiçi Öğrenci Sayısı girin" min="0" required>
+        </div>
+
+        <!-- 1.14 Sorusu -->
+        <div class="input-group">
+            <label for="total-staff">EC.4 Toplam Personel Sayısı: <span style="color: red;">(Üniversitenizde görev yapan toplam akademik (öğretim görevlileri, profesörler ve araştırmacılar) ve idari personel sayısını giriniz.)</span></label>
+            <input type="number" id="total-staff" name="total-staff" placeholder="Personel Sayısı girin" min="0" required>
+        </div>
+
+        <!-- 1.15 Sorusu -->
+        <div class="input-group">
+            <label for="population-ratio">S1.5 Açık alanlar toplamının toplam kampüs nüfusuna bölümü: <span style="color: red;">Lütfen Açık alanlar toplamının toplam kampüs nüfusuna bölümünü [(Merkez Kampüsün Toplam Alanı - Merkez Kampüsteki Zemin Katların Alanı) / (Toplam kayıtlı öğrenci sayısı + Toplam Akademik ve idari personel sayısı)] formülünü kullanarak hesaplayınız.</span></label>
+            <input type="number" id="population-ratio" name="population-ratio" placeholder="Toplam alanın kampüs nüfusuna bölümünü girin" min="0" required>
+        </div>
+
+        <!-- 1.16 Sorusu -->
+        <div class="input-group">
+            <label for="total-budget">S1.6 Toplam Üniversite Bütçesi (ABD Doları)</label>
+            <input type="number" id="total-budget" name="total-budget" placeholder="Toplam Bütçe" min="0" step="0.01" required>
+        </div>
+
+        <!-- 1.17 Sorusu -->
+        <div class="input-group">
+            <label for="sustainability-budget">S1.6 Sürdürülebilirlik İçin Ayrılan Bütçe (ABD Doları)</label>
+            <input type="number" id="sustainability-budget" name="sustainability-budget" placeholder="Sürdürülebilirlik Bütçesi" min="0" step="0.01" required>
+        </div>
+
+    </div>
+
+    <!--           bitiş              -->
+
+    <div class="container">
+        <h1>Enerji ve İklim Değişikliği (EC)</h1>
+
+        <!-- 2.1 Sorusu -->
+        <div class="input-group">
+            <label for="first-floor-area">EC 1 Enerji verimli cihazların kullanımı: <span style="color: red;">Enerji verimli cihazların kullanımı, geleneksel cihazların yerini almaktadır. Buna enerji verimli cihazlar ve aydınlatmalar da (örn. Elektronik cihazlar için yıldız derecelendirmesi kullanımı, LED aydınlatmalar...) dahildir.</span></label>
+            <input type="number" id="energy-efficient-ratio" placeholder="Enerji verimli cihazların kullanım yüzdesini girin">
+        </div>
+
+        <!-- 2.2 Sorusu -->
+        <div class="input-group">
+            <label for="smart-building-area">Merkez kampüsteki akıllı binaların toplam alanı (m2): <span style="color: red;">Lütfen üniversitenizin akıllı binalarının toplam alanını (zemin kat ve diğer katlar dahil) belirtiniz. Akıllı bir bina, enerji verimli cihazlarla donatılmış olmalıdır. Akıllı bir binanın başarısı, binayı kullananları üretken yapan, sunduğu kullanışlı hizmetlerle ölçülür (örn. Aydınlatma, termal konfor, hava kalitesi, fiziksel güvenlik, temizlik vb.)</span></label>
+            <input type="number" id="smart-building-area" placeholder="Akıllı binaların toplam alanını girin">
+        </div>
+
+        <!-- 2.3 Sorusu -->
+        <div class="input-group">
+            <label for="smart-building-program">EC 2 Akıllı bina program uygulaması: <span style="color: red;">Lütfen üniversitenizdeki akıllı bina uygulamasının hangi aşamada olduğunu belirtiniz. (akıllı binaların toplam taban alanının toplam akıllı bina oranına göre yüzdesi)</span></label>
+            <input type="number" id="smart-building-program" placeholder="Akıllı bina uygulamasının hangi aşamadadır ?">
+        </div>
+
+        <!-- 2.4 Sorusu -->
+        <div class="input-group">
+            <label for="renewable-energy">EC 3 Kampüsteki yenilenebilir enerji kaynaklarının sayısı: <span style="color: red;">Lütfen kampüsünüzde kullanılan alternatif enerji kaynaklarının sayısını giriniz.</span></label>
+            <input type="number" id="renewable-energy" placeholder="Yenilenebilir enerji kaynaklarının sayısını girin">
+        </div>
+
+        <!-- 2.5 Sorusu -->
+        <form id="energyForm">
+            <label for="energyType">Kullanılan Enerji Kaynağı Seçin:</label>
+            <select id="energyType">
+                <option value="0">Hiçbiri</option>
+                <option value="1">Biyodizel</option>
+                <option value="2">Temiz biyokütle</option>
+                <option value="3">Güneş enerjisi</option>
+                <option value="4">Jeotermal</option>
+                <option value="5">Rüzgar enerjisi</option>
+                <option value="6">Hidroenerji</option>
+                <option value="7">Isı ve enerji birleştirilmesi</option>
+            </select><br><br>
+            <label for="capacity">Enerji Kapasite (Kilowatt):</label>
+            <input type="number" id="capacity" name="capacity" min="0" step="any"><br><br>
+            <input type="submit" value="Kaydet">
+            <br><br>
+        </form>
+
+        <div id="response"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+         <!--    <form action="save_data.php" method="post">    yöntemiyle yapılamaz mıydı? -->
+         <!--  PHP, sunucu taraflı bir programlama dilidir. Sunucu üzerinde çalışır, dinamik web sayfaları oluşturur. PHP, kullanıcıların gönderdiği form verilerini işler, veritabanından veri çeker, veritabanına veri ekleyebilir veya güncelleyebilir.  -->
+         <!--  Html kullanıcı arayüzü oluşturur.  -->
+         <!--  JavaScript kullanıcıların enerji kaynağı ve kapasite bilgilerini girerek göndermelerini sağlar ve bu bilgileri sunucuya AJAX isteği ile gönderir. Sonra sunucudan gelen yanıtı kullanıcıya gösterir ve form alanlarını temizler. -->
+
+        
+        <!-- 2.6 Sorusu -->
+        <div class="input-group">
+            <label for="total-energy-consumption">EC.4 Yıllık Toplam Enerji Tüketimi (Kilowattsaat): <span style="color: red;">Lütfen üniversitede son 12 ayda tüketilen aydınlatma, ısıtma, soğutma, laboratuvarların işletilmesi vb. tüm amaçlarla tüketilen toplam enerjiyi belirtiniz. </span></label>
+            <input type="number" id="total-energy-consumption" placeholder="Yıllık enerji tüketimini girin">
+        </div>
+
+        <!-- EC.5 Sorusu -->
+        <div class="input-group">
+            <label for="renewable-energy-ratio">EC.5 Yenilenebilir Enerji Kullanım Oranı: <span style="color: red;">Lütfen yenilenebilir enerji üretiminin yıllık toplam enerji kullanımına oranını belirtiniz.</span></label>
+            <input type="number" id="renewable-energy-ratio" step="any" placeholder="Yenilenebilir enerji üretiminin yıllık toplam enerji kullanımına oranını girin">
+        </div>
+
+        <!-- EC.6 Sorusu -->
+        <div class="input-group">
+            <label for="green-building-elements">EC.6 Yeşil Bina Uygulamaları: <span style="color: red;">Lütfen üniversitenizdeki yeşil bina uygulamalarının tüm inşaat ve tamirat politikalarına yansıyan öğeleri (örn. Doğal havalandırma, gün boyu doğal aydınlatma, bina enerji yöneticisinin bulunması, yeşil binaların bulunması, v.b.) ile ilgili size uygun olan seçeneği seçiniz.</span></label>
+            <select id="green-building-elements">
+                <option value="0">Hiç yok</option>
+                <option value="1">1 öğe</option>
+                <option value="2">2 öğe</option>
+                <option value="3">3 öğe</option>
+                <option value="4">3 öğeden fazla</option>
+            </select>
+        </div>
+
+        <!-- EC.7 Sorusu -->
+        <div class="input-group">
+            <label for="emission-reduction-program">EC.7 Aşağıda verilen Kapsam tablosuna göre Lütfen üniversitenizdeki Sera Gazları Emisyonu Azaltma Programlarından size uygun olanı seçiniz.</label>
+            <select id="emission-reduction-program">
+                <option value="0">Hiç yok.</option>
+                <option value="1">Program hazırlanmaktadır (örn. Fizibilite çalışması, ön araştırma)</option>
+                <option value="2">Programlar üniversitenin sahip olduğu veya kontrol ettiği kaynakların doğrudan emisyonlarını azaltmaya çalışmaktadır ve bunlara üniversitenin filosu ve araçlarının emisyonları da dahildir (Kapsam 1)</option>
+                <option value="3">Programlar satın alınan elektrikten kaynaklanan emisyonları azaltmayı amaçlamaktadır (Kapsam 2)</option>
+                <option value="4">Programlar personelin seyahatleri, hava yolları ulaşımı ve kağıt tüketimi gibi üniversitenin sahip olmadığı veya kontrolünde olmayan kaynaklar dışındaki diğer tüm dolaylı emisyonları azaltmayı hedeflemektedir (Kapsam 3)</option>
+            </select>
+        </div>
+
+        <!--  Bilgilendirici Tablo  -->
+        <table>
+            <tr>
+              <th>Emisyon Verisi</th>
+              <th>Kapsam</th>
+              <th>Tanım</th>
+            </tr>
+            <tr>
+              <td>Rutin yakma</td>
+              <td>Kapsam 1</td>
+              <td>Rutin yakma işlemleri, sıcak su kazanı, brülör, ısıtıcı, fırın ve motor gibi belirli bir yerde elektrik, buhar veya ısı elde etmek için yakıt yakılmasıdır.</td>
+            </tr>
+            <tr>
+              <td>Hareketli yakma</td>
+              <td>Kapsam 1</td>
+              <td>Kurumun sahip olduğu ulaşım araçları tarafından yakıt yakılmasıdır.</td>
+            </tr>
+            <tr>
+              <td>Süreç emisyonu</td>
+              <td>Kapsam 1</td>
+              <td>Yakıt yakılması değil, fiziksel veya kimsasal süreçler kaynaklı doğrudan sera gazı emisyonlarıdır.</td>
+            </tr>
+            <tr>
+              <td>Kaçak emisyonu</td>
+              <td>Kapsam 1</td>
+              <td>Soğutucu cihazlar ve klimalar kaynaklı hidroflorokarbon salınımları ve doğal gazlı taşımacılık kaynaklı metan kaçaklarıdır.</td>
+            </tr>
+            <tr>
+              <td>Satın alınan elektrik</td>
+              <td>Kapsam 2</td>
+              <td>Kurum tarafından satın alınan ve kullanılan elektriğin üretimi kaynaklı dolaylı Sera gazı emisyonlarıdır.</td>
+            </tr>
+            <tr>
+              <td>Atıklar</td>
+              <td>Kapsam 3</td>
+              <td>Kurumun katı atıklarının yakılması veya sahada depolanması kaynaklı dolaylı Sera gazı emisyonlarıdır.</td>
+            </tr>
+            <tr>
+              <td>Satın alınan su</td>
+              <td>Kapsam 3</td>
+              <td>Kurum tarafından satın alınan ve kullanılan şebeke suyunun kullanıma hazırlanması kaynaklı dolaylı Sera gazı emisyonlarıdır.</td>
+            </tr>
+            <tr>
+              <td>Ulaşım</td>
+              <td>Kapsam 3</td>
+              <td>Öğrenci ve çalışanların kuruma gidip gelirken seyahatlerinde yol açtıkları dolaylı Sera gazı emisyonlarıdır</td>
+            </tr>
+            <tr>
+              <td>Hava ulaşımı</td>
+              <td>Kapsam 3</td>
+              <td>Kurum tarafından ücreti karşılanan hava yolu seyahatlerinin neden olduğu dolaylı Sera gazı emisyonlarıdır.</td>
+            </tr>
+          </table>
+    </div>
+
+                <!--  Carbon Footprint Calculator Soru 2.11  -->
+
+    <div class="container">
+
+        <div class="input-group">
+            <label for="total-energy-consumption">Lütfen üniversitenizin toplam karbon ayak izini hesaplayınız (son 12 aydaki CO2 emisyonu, ton cinsinden)</label>
+        </div>
+
+        <h1>Carbon Footprint Calculator</h1>
+        <form id="carbon-footprint-form">
+            <label for="electricity-usage">Electricity Usage per Year (kWh):</label>
+            <input type="number" id="electricity-usage" name="electricity-usage" required>
+            <br>
+            <label for="shuttle-buses">Number of Shuttle Buses:</label>
+            <input type="number" id="shuttle-buses" name="shuttle-buses" required>
+            <br>
+            <label for="car-count">Number of Cars:</label>
+            <input type="number" id="car-count" name="car-count" required>
+            <br>
+            <label for="motorcycle-count">Number of Motorcycles:</label>
+            <input type="number" id="motorcycle-count" name="motorcycle-count" required>
+            <br>
+            <button type="button" id="calculate-btn">Calculate</button>
+        </form>
+        <script>
+            document.getElementById('calculate-btn').addEventListener('click', function() {
+            var electricityUsage = parseFloat(document.getElementById('electricity-usage').value);
+            var shuttleBuses = parseFloat(document.getElementById('shuttle-buses').value);
+            var carCount = parseFloat(document.getElementById('car-count').value);
+            var motorcycleCount = parseFloat(document.getElementById('motorcycle-count').value);
+        
+            var electricityEmission = (electricityUsage / 1000) * 0.84;
+            var shuttleEmission = ((shuttleBuses * 150 * 5 * 240) / 100) * 0.01;
+            var carEmission = ((carCount * 2 * 5 * 240) / 100) * 0.02;
+            var motorcycleEmission = ((motorcycleCount * 2 * 5 * 240) / 100) * 0.01;
+        
+            var totalEmission = electricityEmission + shuttleEmission + carEmission + motorcycleEmission;
+        
+            document.getElementById('resultcarbon').innerText = "Total Carbon Footprint: " + totalEmission.toFixed(2) + " metric tons";
+        });
+        </script>
+
+        <style>
+            #resultcarbon {
+                display: inline-block;
+                border: 2px solid #4CAF50; /* Yeşil kenarlık */
+                padding: 10px;
+                border-radius: 5px;
+                margin-top: 20px;
+                font-size: 18px;
+                background-color: #f2f2f2; /* Hafif gri arkaplan */
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Hafif gölgelendirme */
+                margin-bottom: 20px;
+            }
+        </style>
+
+        <div id="resultcarbon"></div>
+
+        <div class="input-group">
+            <label for="carbon-per-person">EC.8 Toplam karbon ayak izinizin toplam kampüs nüfusuna bölümü (kişi başına ton)<span style="color: red;">Lütfen toplam karbon ayak izinizin toplam kampüs nüfusuna bölümü ile elde edilen oranı giriniz</span></label>
+            <select id="carbon-per-person">
+                <option value="0">2.05 metrik tondan daha fazla</option>
+                <option value="1">1.11 – 2.05 metrik ton arasında</option>
+                <option value="2">0.42 – 1.11 metrik ton arasında</option>
+                <option value="3">0.10 – 0.42 metrik ton arasında</option>
+                <option value="4">0.10 metrik tondan daha az</option>
+            </select>
+        </div>
+        
+
+
+        <h4>Karbon ayak izi hesaplarken kullanılan parametre ve formüller aşağıdaki tabloda verilmiştir.</h4>
+    </div>
+
+    <div class="container">
+        <h2>Karbon Ayak İzi Hesaplama</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parametreler</th>
+                    <th>Hesaplama</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Elektrik Kullanımı</td>
+                    <td>(Yıllık elektrik tüketimi kWh / 1000) x 0.84</td>
+                </tr>
+                <tr>
+                    <td>Otobüs Kullanımı</td>
+                    <td>((Üniversitedeki servis otobüsü sayısı  x Günlük servis otobüsü sefer sayısı sefer/day x Otobüs başına günlük kampüs içi seyahat mesafesi (kilometre) x 240 gün) / 100) x 0.01</td>
+                </tr>
+                <tr>
+                    <td>Araba Kullanımı</td>
+                    <td>((Üniversiteye giren araba sayısı x 2 x Araba başına günlük kampüs içi seyahat mesafesi (kilometre)  km/day x 240 gün) / 100) x 0.02</td>
+                </tr>
+                <tr>
+                    <td>Motor Kullanımı</td>
+                    <td>((Üniversiteye giren motor sayısı x 2 x Motor başına günlük kampüs içi seyahat mesafesi (kilometre) km/day x 240 gün) / 100) x 0.01</td>
+                </tr>
+                <tr class="total">
+                    <td>Toplam Emisyon</td>
+                    <td>Elektrik Kullanımı + Otobüs Kullanımı + Araba Kullanımı + Motor Kullanımı</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <h1>Atıklar (WS)</h1>
+
+        <!-- 3.1 Sorusu -->
+        <div class="input-group">
+            <label for="recycling-program">Üniversite atıkları için geri dönüşüm programı (WS.1)
+                <span style="color: red;">Personel ve öğrencileri atıkları geri dönüşüme dahil etmeye teşvik etmek için politikalarla desteklenen çabaların şu anki durumunu aşağıdaki seçeneklerden seçiniz</span>
+            </label>
+            <select id="recycling-program">
+                <option value="0">Yoktur</option>
+                <option value="1">Kısmen (Atıkların %1 - %25’i arası)</option>
+                <option value="2">Kısmen (Atıkların >%25 - %50’si arası)</option>
+                <option value="3">Kısmen (Atıkların >%50 - %75’i arası)</option>
+                <option value="4">Geniş kapsamlı (Atıkların >%75 i)</option>
+            </select>
+        </div>
+
+        <!-- 3.2 Sorusu -->
+        <div class="input-group">
+            <label for="paper-plastic-reduction">Kampüste kağıt ve plastik kullanımını azaltma programı (WS.2)
+                <span style="color: red;">Üniversitenizde kağıt ve plastik kullanımını azaltma konusunda resmi politika oluşturmada üniversitenizin durumunu en iyi aktaran seçenek veya seçenekleri işaretleyiniz. (örn. İki yönlü baskı politikası, cam bardak kullanımı, yeniden kullanılabilir poşet kullanımı, sadece gerektiğinde çıktı alma, ücretsiz su dağıtımı, kağıt kullanımını azaltma programı, v.b.)</span>
+            </label>
+            <select id="paper-plastic-reduction">
+                <option value="0">Yoktur</option>
+                <option value="1">1 program</option>
+                <option value="2">2 program</option>
+                <option value="3">3 program</option>
+                <option value="4">3’ten fazla program</option>
+            </select>
+        </div>
+
+        <!-- 3.3 Sorusu -->
+        <div class="input-group">
+            <label for="processing-organic-waste">Organik atıkların işlenmesi (WS.3)
+                <span style="color: red;">Üniversitenizin organik atıkları (çöp, sebze ve bitki artıkları işleme metodu) nasıl bir işleme tabi tuttuğu ile ilgili durumunuzu en iyi tanımlayan seçeneği işaretleyiniz.</span>
+            </label>
+            <select id="processing-organic-waste">
+                <option value="0">Açık alanda biriktirme</option>
+                <option value="1">Kısmen (%1 - %25’i işlenmektedir)</option>
+                <option value="2">Kısmen (>%25 - %50’si işlenmektedir)</option>
+                <option value="3">Kısmen (>%50 - %75’i işlenmektedir)</option>
+                <option value="4">Geniş kapsamlı (>%75’i işlenmekte ve geri dönüştürülmektedir)</option>
+            </select>
+        </div>
+
+        <!-- 3.4 Sorusu -->
+        <div class="input-group">
+            <label for="processing-inorganic-waste">İnorganik atıkların işlenmesi (WS.4)
+                <span style="color: red;">Lütfen üniversitenizin inorganik atıkların çoğunu (çöp, atıklar, atılan kağıtlar, plastik, metal, v.b.) nasıl bir işleme tabi tuttuğu ile ilgili durumunuzu en iyi tanımlayan seçeneği işaretleyiniz</span>
+            </label>
+            <select id="processing-inorganic-waste">
+                <option value="0">Açık alanda yakılmaktadır</option>
+                <option value="1">Kısmen (%1 - %25’i işlenmektedir)</option>
+                <option value="2">Kısmen (>%25 - %50’si işlenmektedir)</option>
+                <option value="3">Kısmen (>%50 - %75’i işlenmektedir)</option>
+                <option value="4">Geniş kapsamlı (>%75’i işlenmekte ve geri dönüştürülmektedir)</option>
+            </select>
+        </div>
+
+        <!-- 3.5 Sorusu -->
+        <div class="input-group">
+            <label for="processing-toxic-waste">Toksik atıkların işlenmesi (WS.5)
+                <span style="color: red;">Üniversitenizin toksik atıkları nasıl bir işleme tabi tuttuğunu belirten seçeneği işaretleyiniz. İşleme süreci, toksik atıkların ayrı işlem görüp görmediği, örneğin sınıflandırılması ve üçüncü şahıslara veya sertifikalı atık şirketlerine verilip verilmediğini içerir.</span>
+            </label>
+            <select id="processing-toxic-waste">
+                <option value="0">Yapılmamaktadır</option>
+                <option value="1">Kısmen (%1 - %25’i işlenmektedir)</option>
+                <option value="2">Kısmen (>%25 - %50’si işlenmektedir)</option>
+                <option value="3">Kısmen (>%50 - %75’i işlenmektedir)</option>
+                <option value="4">Geniş kapsamlı (>%75’i işlenmekte ve geri dönüştürülmektedir)</option>
+            </select>
+        </div>
+
+        <!-- 3.6 Sorusu -->
+        <div class="input-group">
+            <label for="kanalizasyon-waste-disposal">Kanalizasyon atıklarının bertarafı (WS.6)
+                <span style="color: red;">Üniversitenizde kanalizasyon atıklarının genel olarak hangi yöntemle işlem gördüğünü belirtiniz. Üniversitenizin kanalizasyon atıklarının çoğunu nasıl bir işleme tabi tuttuğu ile ilgili durumunuza uygun en yakın seçeneği işaretleyiniz</span>
+            </label>
+            <select id="kanalizasyon-waste-disposal">
+                <option value="0">İşleme tabi tutulmadan su kanallarına verilmektedir</option>
+                <option value="1">Konvensiyonel olarak işlem görmektedir</option>
+                <option value="2">Teknik işleme tabi tutulmaktadır</option>
+                <option value="3">İşleme tabi tutularak daha düşük kaliteli ürün elde edilmektedir</option>
+                <option value="4">İşleme tabi tutularak daha yüksek kaliteli ürün elde edilmektedir</option>
+            </select>
+        </div>
+        </div>
+
+        <div class="container">
+            <h1>Su (WR)</h1>
+    
+            <!-- 4.1 Sorusu -->
+            <div class="input-group">
+                <label for="saving-water-program">Su tasarrufu program uygulaması (WR.1)
+                    <span style="color: red;">Lütfen üniversitenizin su tasarruf programının (örn. Göller ve göl yönetim sistemleri, yağmur hasadı sistemleri, su tankları) sistematik ve resmi halinin son durumunu en iyi tanımlayan seçeneği işaretleyiniz.</span>
+                </label>
+                <select id="saving-water-program">
+                    <option value="0">Yoktur</option>
+                    <option value="1">%1 - %25 Program hazırlanmaktadır (örn. Fizibilite çalışması, ön araştırma)</option>
+                    <option value="2">%25 - %50 arası Program yeni uygulanmaya başlamıştır (Örn. Yüzeylerden akacak suyun potansiyel hacminin hesaplanması)</option>
+                    <option value="3">50 - %75 su tasarrufu yapılmaktadır</option>
+                    <option value="4">%75'den fazla su tasarrufu yapılmaktadır</option>
+                </select>
+            </div>
+    
+            <!-- 4.2 Sorusu -->
+            <div class="input-group">
+                <label for="water-recycling">Su geri dönüşüm programı uygulaması (WR.2)
+                    <span style="color: red;">Lütfen üniversitenizin su geri dönüşüm programları ile ilgili resmi politikalar (örn. Tuvaletlerde, araba yıkamada ve çiçek sulamada geri dönüştürülmüş su kullanımı) oluşturulmasındaki güncel durumunu en iyi yansıtan seçeneği işaretleyiniz</span>
+                </label>
+                <select id="water-recycling">
+                    <option value="0">Yoktur</option>
+                    <option value="1">%1 - %25 Program hazırlanmaktadır</option>
+                    <option value="2">%25 - %50 arası Program yeni uygulanmaya başlamıştır (Örn. Atık su ölçümü)</option>
+                    <option value="3">%50 - %75 su geri dönüşümü yapılmaktadır</option>
+                    <option value="4">%75'den fazla su geri dönüşümü yapılmaktadır</option>
+                </select>
+            </div>
+    
+            <!-- 4.3 Sorusu -->
+            <div class="input-group">
+                <label for="water-efficient-devices">Su verimliliğine sahip cihazların kullanımı (WR.3)
+                    <span style="color: red;">Su verimli cihazların kullanımı geleneksel cihazların yerini almaktadır. Buna, su verimli cihazların (örn. Sensörlü veya otomatik musluklar, yüksek verimli tuvalet temizleme sistemleri) kullanımı da dahildir..</span>
+                </label>
+                <select id="water-efficient-devices">
+                    <option value="0">Yoktur. Su verimliliğine sahip cihazlara ihtiyaç duyulmaktadır, ancak hiçbirşey yapılmamıştır.</option>
+                    <option value="1">%1 - %25 Program hazırlanmaktadır</option>
+                    <option value="2">%25 - %50 su verimliliğine sahip cihazlar kullanımdadır</option>
+                    <option value="3">%50 - %75 su verimliliğine sahip cihazlar kullanımdadır</option>
+                    <option value="4">%75 oranından fazla su verimliliğine sahip cihazlar kullanımdadır</option>
+                </select>
+            </div>
+    
+            <!-- 4.4 Sorusu -->
+            <div class="input-group">
+                <label for="sebeke-su">Kullanılan şebeke suyu (WR.4)
+                    <span style="color: red;">Lütfen kullanılan, şehir şebekesi veya su tesisatı kaynaklı şebeke suyu (örn. Yağmur suyu tankı kaynaklı) miktarını üniversitenizdeki tüm su kaynaklarıyla karşılaştırarak belirtiniz. Şebeke suyu üniversite içindeki ve/veya dışındaki su kaynaklarından geliyor olabilir. Lütfen aşağıdaki seçeneklerden birini işaretleyiniz</span>
+                </label>
+                <select id="sebeke-su">
+                    <option value="0">Yoktur</option>
+                    <option value="1">%1 - %25 şebeke suyu kullanılmaktadır</option>
+                    <option value="2">%25 - %50 şebeke suyu kullanılmaktadır</option>
+                    <option value="3">%50 - %75 şebeke suyu kullanılmaktadır</option>
+                    <option value="4">%75 şebeke suyu kullanılmaktadır</option>
+                </select>
+            </div>
+            </div>
+    
+            
+    
+        <!-- HTML dosyası içindeki Gönder düğmesine event listener ekleme -->
+        <button onclick="calculateScore()">Hesapla</button>
+        <div id="result"></div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
